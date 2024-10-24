@@ -23,7 +23,7 @@ export default function Signin() {
         console.log(user);
 
         // Redirect to root directory after successful sign-in
-        router.push('/');
+        router.push('/dashboard');
       })
       .catch((error) => {
         // Handle Errors here.
