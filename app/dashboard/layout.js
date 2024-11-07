@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
                 {/* Main Layout */}
                 
                 <main className="p-2 sm:ml-64">
-                    <div className="p-2 rounded-md">
+                    <div className="rounded-md">
                         {children}
                     </div>
                 </main>
