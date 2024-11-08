@@ -79,11 +79,11 @@ const ExamCreationForm = () => {
     <form className="space-y-2 m-2" onSubmit={handleSubmit}>
       {/* Exam Title */}
       <div className="">
-        <label htmlFor="examNameInput" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title of Exam</label>
+        <label htmlFor="examNameInput" className="block mb-2 text-sm font-medium text-gray-900">Title of Exam</label>
         <input
           type="text"
           id="examNameInput"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           placeholder="Enter Title here" 
           value={examTitle} 
           onChange={(e) => setExamTitle(e.target.value)}
@@ -94,10 +94,10 @@ const ExamCreationForm = () => {
       <div className="grid grid-cols-2 gap-2">
         {/* Section Selection */}
         <div>
-          <label htmlFor="sectionInput" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Section</label>
+          <label htmlFor="sectionInput" className="block mb-2 text-sm font-medium text-gray-900">Section</label>
           <select
             id="sectionInput"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             value={section}
             onChange={(e) => setSection(e.target.value)}
           >
@@ -110,10 +110,10 @@ const ExamCreationForm = () => {
 
         {/* Subject Selection */}
         <div>
-          <label htmlFor="subjectInput" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
+          <label htmlFor="subjectInput" className="block mb-2 text-sm font-medium text-gray-900">Subject</label>
           <select
             id="subjectInput"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             disabled={!section}
@@ -127,10 +127,10 @@ const ExamCreationForm = () => {
 
         {/* Paper Selection */}
         <div>
-          <label htmlFor="paperInput" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Paper</label>
+          <label htmlFor="paperInput" className="block mb-2 text-sm font-medium text-gray-900">Paper</label>
           <select
             id="paperInput"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             value={paper}
             onChange={(e) => setPaper(e.target.value)}
             disabled={!subject}
@@ -144,10 +144,10 @@ const ExamCreationForm = () => {
 
         {/* Chapter Selection */}
         <div>
-          <label htmlFor="chapterInput" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Chapter</label>
+          <label htmlFor="chapterInput" className="block mb-2 text-sm font-medium text-gray-900">Chapter</label>
           <select
             id="chapterInput"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             value={chapter}
             onChange={(e) => setChapter(e.target.value)}
             disabled={!paper}
@@ -169,21 +169,21 @@ const ExamCreationForm = () => {
           <hr/>
         </div>
           <div className="">
-            <label htmlFor="mcqQuestions" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">MCQ Questions</label>
+            <label htmlFor="mcqQuestions" className="block mb-2 text-sm font-medium text-gray-900">MCQ Questions</label>
             <input
               type="number"
               id="mcqQuestions"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value={mcqQuestions}
               onChange={(e) => setMcqQuestions(e.target.value)}
             />
           </div>
           <div className="">
-            <label htmlFor="cqQuestions" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CQ Questions</label>
+            <label htmlFor="cqQuestions" className="block mb-2 text-sm font-medium text-gray-900">CQ Questions</label>
             <input
               type="number"
               id="cqQuestions"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value={cqQuestions}
               onChange={(e) => setCqQuestions(e.target.value)}
             />
@@ -197,21 +197,21 @@ const ExamCreationForm = () => {
           <hr/>
         </div>
           <div className="">
-            <label htmlFor="mcqPqn" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">MCQ PQN</label>
+            <label htmlFor="mcqPqn" className="block mb-2 text-sm font-medium text-gray-900">MCQ PQN</label>
             <input
               type="number"
               id="mcqPqn"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value={mcqPqn}
               onChange={(e) => setMcqPqn(e.target.value)}
             />
           </div>
           <div className="">
-            <label htmlFor="cqPqn" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CQ PQN</label>
+            <label htmlFor="cqPqn" className="block mb-2 text-sm font-medium text-gray-900">CQ PQN</label>
             <input
               type="number"
               id="cqPqn"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value={cqPqn}
               onChange={(e) => setCqPqn(e.target.value)}
             />
@@ -225,21 +225,21 @@ const ExamCreationForm = () => {
           <hr/>
         </div>
           <div className="">
-            <label htmlFor="mcqPqt" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">MCQ PQT (minutes)</label>
+            <label htmlFor="mcqPqt" className="block mb-2 text-sm font-medium text-gray-900">MCQ PQT (minutes)</label>
             <input
               type="number"
               id="mcqPqt"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value={mcqPqt}
               onChange={(e) => setMcqPqt(e.target.value)}
             />
           </div>
           <div className="">
-            <label htmlFor="cqPqt" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CQ PQT (minutes)</label>
+            <label htmlFor="cqPqt" className="block mb-2 text-sm font-medium text-gray-900">CQ PQT (minutes)</label>
             <input
               type="number"
               id="cqPqt"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               value={cqPqt}
               onChange={(e) => setCqPqt(e.target.value)}
             />
@@ -248,7 +248,7 @@ const ExamCreationForm = () => {
 
         <div className="grid grid-cols-1"></div>
         <div className="grid grid-cols-1">
-        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Create</button>
+        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Create</button>
         </div>
       </div>
     </form>

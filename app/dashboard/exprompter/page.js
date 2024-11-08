@@ -13,7 +13,7 @@ export default function Exprompter() {
       <div className="bg-slate-50 p-2">
         {/* Title part */}
         <div className="">
-                  <h2 className="text-lg font-bold p-1 dark:text-gray-50">Exam Prompter</h2>
+                  <h2 className="text-lg font-bold p-1">Exam Prompter</h2>
                   <hr/>
 
                   <div>
