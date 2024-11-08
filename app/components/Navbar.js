@@ -1,10 +1,20 @@
+"use client"
+
 import Link from 'next/link'
+import { useState } from 'react';
 
 export default function Navbar() {
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
       <nav className="flex flex-wrap items-center justify-between p-2 sm:hidden">
-        <button data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+        <button onClick={toggleSidebar} data-drawer-target="sidebar-multi-level-sidebar" data-drawer-toggle="sidebar-multi-level-sidebar" aria-controls="sidebar-multi-level-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
           <span className="sr-only">Open sidebar</span>
           <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path clipRule="evenodd" fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
@@ -18,13 +28,26 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <aside id="sidebar-multi-level-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-        <div className="h-full px-2 py-2 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+      <aside
+        id="sidebar-multi-level-sidebar"
+        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`}
+        aria-label="Sidebar">
+        <div className="h-full px-2 py-2 overflow-y-auto bg-gray-50">
           <div className="flex flex-col justify-between border-e bg-white">
-            <div className="px-4 py-6">
-              <span className="grid h-10 w-24 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
-                Logo
-              </span>
+            <div className="px-2 py-3">
+              <div className='grid grid-cols-2 justify-items-center'>
+                <span className="hidden grid h-10 w-24 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
+                  Logo
+                </span>
+                <span>
+                  <button onClick={toggleSidebar} type="button" className="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                    <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span className="sr-only">Close modal</span>
+                  </button>
+                </span>
+              </div>
 
               <ul className="mt-6 space-y-1">
                 <li>
@@ -92,7 +115,7 @@ export default function Navbar() {
                     </summary>
 
                     <ul className="mt-2 space-y-1 px-4">
-                      
+
                       <li>
                         <Link className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700' href="/dashboard/argus">Argus Exam</Link>
                       </li>

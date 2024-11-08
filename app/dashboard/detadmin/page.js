@@ -22,7 +22,7 @@ export default function DetPrompter() {
                         <TreePage />
                     </div>
 
-                    <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 text-center'>
+                    <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
                         <AddSectionForm />
                         <AddSubjectForm />
                         <AddPaperForm />
