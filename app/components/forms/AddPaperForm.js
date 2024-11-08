@@ -8,6 +8,7 @@ export default function AddPaperForm() {
     const [newPaperName, setNewPaperName] = useState('');
     const [newPaperNameBn, setNewPaperNameBn] = useState('');
     const [selSubject, setSelSubject] = useState("");
+    const [selSection, setSelSection] = useState("");
     const [showPopup, setShowPopup] = useState(false);
     const [detData, setDetData] = useState(null);
 
@@ -21,6 +22,8 @@ export default function AddPaperForm() {
             setDetData(data);
         });
     }, []);
+
+    const filteredSubjects = detData?.subject?.filter((sub) => sub.psecid === selSection) || [];
 
     const handleAddPaper = async (e) => {
         if (selSubject !== "" && newPaperName !== "" && newPaperNameBn !== "") {
@@ -56,7 +59,7 @@ export default function AddPaperForm() {
         <main>
             <button
                 onClick={openPopup}
-                className="bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                className="w-full bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700"
             >
                 Add New Paper
             </button>
@@ -81,16 +84,31 @@ export default function AddPaperForm() {
                         {/* Paper Form */}
                         <div className="p-4">
                             <div>
+                                <label htmlFor="sectionSelector" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Section</label>
+                                <select
+                                    id="sectionSelector"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    value={selSection}
+                                    onChange={(e) => setSelSection(e.target.value)}
+                                >
+                                    <option value="">Select a Section</option>
+                                    {detData.sections && detData.sections.map((section) => (
+                                        <option key={section.id} value={section.id}>{section.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
                                 <label htmlFor="subjectSelector" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
                                 <select
                                     id="subjectSelector"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value={selSubject}
                                     onChange={(e) => setSelSubject(e.target.value)}
+                                    disabled={!selSection}
                                 >
                                     <option value="">Select a Subject</option>
-                                    {detData.subject && detData.subject.map((subject) => (
-                                        <option key={subject.id} value={subject.id}>{subject.name}</option>
+                                    {filteredSubjects.map((subj) => (
+                                        <option key={subj.id} value={subj.id}>{subj.name}</option>
                                     ))}
                                 </select>
                             </div>

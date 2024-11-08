@@ -58,7 +58,7 @@ const TreePage = () => {
   const renderTree = (node, level = 0) => (
     <div
       key={node.id}
-      className={`ml-4 sm:ml-8 py-1 px-2 text-sm font-semibold ${level === 3 ? 'border-2 border-white border-l-indigo-500 rounded-md bg-cyan-100' : ''} ${level === 2 ? 'border-2 border-white border-l-red-500 rounded-md' : ''} ${level === 1 ? 'border-2 border-white border-l-green-500 rounded-md' : ''} ${level === 0 ? 'border-2 border-white border-l-red-500 rounded-md' : ''}`}
+      className={`ml-4 sm:ml-8 py-1 px-2 text-sm font-semibold ${level === 3 ? 'border-2 border-white border-l-indigo-500 rounded-md bg-cyan-100' : ''} ${level === 2 ? 'border-2 border-white border-l-pink-500 rounded-md' : ''} ${level === 1 ? 'border-2 border-white border-l-green-500 rounded-md' : ''} ${level === 0 ? 'border-2 border-white border-l-red-500 rounded-md' : ''}`}
     >
       <div onClick={() => toggleExpand(node.id)} style={{ cursor: 'pointer' }}>
         {node.name}

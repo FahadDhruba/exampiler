@@ -8,6 +8,8 @@ export default function AddChapterForm() {
     const [newChapterName, setNewChapterName] = useState('');
     const [newChapterNameBn, setNewChapterNameBn] = useState('');
     const [selPaper, setSelPaper] = useState("");
+    const [selSection, setSelSection] = useState("");
+    const [selSubject, setSelSubject] = useState("");
     const [showPopup, setShowPopup] = useState(false);
     const [detData, setDetData] = useState(null);
 
@@ -22,13 +24,17 @@ export default function AddChapterForm() {
         });
     }, []);
 
+    const filteredSubjects = detData?.subject?.filter((sub) => sub.psecid === selSection) || [];
+    const filteredPapers = detData?.paper?.filter((pap) => pap.psubid === selSubject) || [];
+
+
     const handleAddChapter = async (e) => {
         if (selPaper !== "" && newChapterName !== "" && newChapterNameBn !== "") {
             try {
                 const tempChapterArr = [...detData.chapter || []];
                 tempChapterArr.push({
                     id: `chapter${Date.now().toString()}`,
-                    cpaperid: selPaper,
+                    ppapid: selPaper,
                     name: newChapterName,
                     namebn: newChapterNameBn
                 });
@@ -56,7 +62,7 @@ export default function AddChapterForm() {
         <main>
             <button
                 onClick={openPopup}
-                className="bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                className="w-full bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700"
             >
                 Add New Chapter
             </button>
@@ -81,37 +87,71 @@ export default function AddChapterForm() {
                         {/* Chapter Form */}
                         <div className="p-4">
                             <div>
+                                <label htmlFor="sectionSelector" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Section</label>
+                                <select
+                                    id="sectionSelector"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    value={selSection}
+                                    onChange={(e) => setSelSection(e.target.value)}
+                                >
+                                    <option value="">Select a Section</option>
+                                    {detData.sections && detData.sections.map((section) => (
+                                        <option key={section.id} value={section.id}>{section.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
+                                <label htmlFor="subjectSelector" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Subject</label>
+                                <select
+                                    id="subjectSelector"
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    value={selSubject}
+                                    onChange={(e) => setSelSubject(e.target.value)}
+                                    disabled={!selSection}
+                                >
+                                    <option value="">Select a Subject</option>
+                                    {filteredSubjects.map((subj) => (
+                                        <option key={subj.id} value={subj.id}>{subj.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div>
                                 <label htmlFor="paperSelector" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Paper</label>
                                 <select
                                     id="paperSelector"
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     value={selPaper}
-                                    onChange={(e) => setSelPaper(e.target.value)}
+                                    onChange={(e) => setSelPaper(e.target.value)} 
+                                    disabled={!selSubject}
                                 >
                                     <option value="">Select a Paper</option>
-                                    {detData.paper && detData.paper.map((paper) => (
-                                        <option key={paper.id} value={paper.id}>{paper.name}</option>
+                                    {filteredPapers.map((ppr) => (
+                                        <option key={ppr.id} value={ppr.id}>{ppr.name}</option>
                                     ))}
                                 </select>
                             </div>
-                            <label htmlFor="chapterNameInput" className="block text-sm font-medium text-gray-900 dark:text-white">Chapter Name English</label>
-                            <input
-                                type="text"
-                                id="chapterNameInput"
-                                placeholder="Chapter Name English"
-                                value={newChapterName}
-                                onChange={(e) => setNewChapterName(e.target.value)}
-                                className="my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            />
-                            <label htmlFor="chapterNameInputBn" className="block text-sm font-medium text-gray-900 dark:text-white">Chapter Name Bangla</label>
-                            <input
-                                type="text"
-                                id="chapterNameInputBn"
-                                placeholder="Chapter Name Bangla"
-                                value={newChapterNameBn}
-                                onChange={(e) => setNewChapterNameBn(e.target.value)}
-                                className="my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            />
+                            <div>
+                                <label htmlFor="chapterNameInput" className="block text-sm font-medium text-gray-900 dark:text-white">Chapter Name English</label>
+                                <input
+                                    type="text"
+                                    id="chapterNameInput"
+                                    placeholder="Chapter Name English"
+                                    value={newChapterName}
+                                    onChange={(e) => setNewChapterName(e.target.value)}
+                                    className="my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="chapterNameInputBn" className="block text-sm font-medium text-gray-900 dark:text-white">Chapter Name Bangla</label>
+                                <input
+                                    type="text"
+                                    id="chapterNameInputBn"
+                                    placeholder="Chapter Name Bangla"
+                                    value={newChapterNameBn}
+                                    onChange={(e) => setNewChapterNameBn(e.target.value)}
+                                    className="my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                />
+                            </div>
                             <button onClick={handleAddChapter} className="bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700">
                                 Create Chapter
                             </button>

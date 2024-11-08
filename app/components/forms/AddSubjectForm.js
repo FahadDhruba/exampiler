@@ -64,7 +64,7 @@ export default function AddSubjectForm() {
 
             <button
                 onClick={openPopup}
-                className="bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                className="w-full bg-blue-600 text-sm text-white px-4 py-2 rounded-md hover:bg-blue-700"
             >
                 Add New Subject
             </button>

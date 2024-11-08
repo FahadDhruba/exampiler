@@ -5,22 +5,9 @@ import AddPaperForm from '@/app/components/forms/AddPaperForm';
 import AddSectionForm from '@/app/components/forms/AddSectionForm';
 import AddSubjectForm from '@/app/components/forms/AddSubjectForm';
 import TreePage from '@/app/components/Treepage';
-import { useState } from 'react';
 
 export default function DetPrompter() {
-    const [sections, setSections] = useState([]);
-    const [subjects, setSubjects] = useState([]);
-    const [papers, setPapers] = useState([]);
-    const [chapters, setChapters] = useState([]);
-
-    const [newChapter, setNewChapter] = useState({ name: '', paperId: '' });
-
-
-    const handleAddChapter = () => {
-        setChapters([...chapters, { id: Date.now().toString(), ppapid: newChapter.paperId, name: newChapter.name }]);
-        setNewChapter({ name: '', paperId: '' });
-    };
-
+    
     return (
         <main>
             <div className="text-xs mb-2 text-gray-500 font-semibold">Dashboard / Details Prompter</div>
@@ -35,7 +22,7 @@ export default function DetPrompter() {
                         <TreePage />
                     </div>
 
-                    <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
+                    <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 text-center'>
                         <AddSectionForm />
                         <AddSubjectForm />
                         <AddPaperForm />
@@ -105,7 +92,7 @@ export default function DetPrompter() {
                     </div> */}
 
                     {/* Chapter Form */}
-                    <div className="mb-6">
+                    {/* <div className="mb-6">
                         <h3 className="text-md font-semibold mb-2 text-gray-600">Add Chapter</h3>
                         <select
                             value={newChapter.paperId}
@@ -127,13 +114,13 @@ export default function DetPrompter() {
                         <button onClick={handleAddChapter} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
                             Add Chapter
                         </button>
-                    </div>
+                    </div> */}
 
                     {/* Display Data */}
-                    <div>
+                    {/* <div>
                         <h3 className="text-md font-semibold mb-2 text-gray-600">Data</h3>
                         <pre className="bg-gray-100 p-4 rounded-md text-sm">{JSON.stringify({ sections, subjects, papers, chapters }, null, 2)}</pre>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
