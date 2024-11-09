@@ -4,6 +4,11 @@ import AddSectionForm from '@/app/components/forms/AddSectionForm';
 import AddSubjectForm from '@/app/components/forms/AddSubjectForm';
 import TreePage from '@/app/components/Treepage';
 
+export const metadata = {
+    title: "Details Admin",
+    description: "Details Admin Page. Next Gen Solution to Exam Question Creation.",
+  };
+
 export default function DetPrompter() {
     
     return (
