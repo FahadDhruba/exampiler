@@ -37,6 +37,7 @@ const ExamCreationForm = () => {
 
     // Prepare data to be stored in Firebase
     const examData = {
+      eid: `exam${Date.now()}`,
       title: examTitle,
       section,
       subject,
