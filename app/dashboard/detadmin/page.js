@@ -1,5 +1,3 @@
-"use client"
-
 import AddChapterForm from '@/app/components/forms/AddChapterForm';
 import AddPaperForm from '@/app/components/forms/AddPaperForm';
 import AddSectionForm from '@/app/components/forms/AddSectionForm';
@@ -10,12 +8,12 @@ export default function DetPrompter() {
     
     return (
         <main>
-            <div className="text-xs mb-2 text-gray-500 font-semibold">Dashboard / Details Prompter</div>
+            <div className="text-xs mb-2 text-gray-500 font-semibold">Dashboard / Details Admin</div>
 
             <div className="bg-slate-50 p-2">
                 {/* Title part */}
                 <div className="">
-                    <h2 className="text-lg font-bold p-1 dark:text-gray-50">Details Prompter</h2>
+                    <h2 className="text-lg font-bold p-1 dark:text-gray-50">Details Admin</h2>
                     <hr />
 
                     <div className='bg-white p-2 m-2 rounded-md'>

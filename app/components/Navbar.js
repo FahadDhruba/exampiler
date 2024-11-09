@@ -124,19 +124,14 @@ export default function Navbar() {
                       </li>
 
                       <li>
-                        <Link className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700' href="/dashboard/helios">Helios Question</Link>
+                      <Link className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700' href="/dashboard/detadmin">Details Admin</Link>
                       </li>
 
                     </ul>
                   </details>
                 </li>
 
-                <li>
-
-                  <Link className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700' href="/dashboard/detadmin">Details Admin</Link>
-
-                </li>
-
+                
                 <li>
                   <a
                     href="#"
